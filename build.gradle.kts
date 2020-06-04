@@ -39,7 +39,7 @@ java {
 }
 
 group = "org.caffinitas.gradle.jflex"
-version = "0.1"
+version = "0.1.1"
 val readableName = "JFlex plugin w/ better cachability"
 description = "JFlex plugin w/ better cachability"
 

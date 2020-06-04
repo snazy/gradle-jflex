@@ -31,11 +31,11 @@ class JFlexPlugin : Plugin<Project> {
         val jflex by tasks.registering(JFlexTask::class)
 
         tasks.named("compileJava") {
-            dependsOn(jflex)
-        }
+            project.extensions.getByType<SourceSetContainer>().named(SourceSet.MAIN_SOURCE_SET_NAME) {
+                java.srcDir { jflex.get().generateDir }
+            }
 
-        extensions.getByType<SourceSetContainer>().named(SourceSet.MAIN_SOURCE_SET_NAME) {
-            java.srcDir { jflex.get().generateDir }
+            dependsOn(jflex)
         }
     }
 }
